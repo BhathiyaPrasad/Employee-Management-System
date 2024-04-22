@@ -7,3 +7,6 @@
                                 3 .npm i @emotion/styled
 4 librarie for connect with backend
                                 1    npm install axios
+
+
+                                2 viedio 39.29
