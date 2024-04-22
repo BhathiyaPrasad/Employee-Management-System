@@ -1,4 +1,4 @@
-import { Grid, Input, Typography } from "@mui/material";
+import { Button, ButtonBase, Grid, Input, Typography } from "@mui/material";
 
 const employerform = props => {
   return (
@@ -39,7 +39,45 @@ const employerform = props => {
     
     />
    </Grid>
-
+   <Grid item xs={12} s={6} sx={{display:"flex"}}>
+    <Typography 
+    component={"label"} 
+    htmlFor="id"
+    sx={{
+        color:"black",
+        marginRight:"20px",
+        fontSize:"16px",
+        width:"100px",
+        display: "block",
+    }}
+    >
+        NAME
+    </Typography>
+    <Input 
+    type="text"
+    id="name" 
+    name="name"
+    sx={{width:"400px"}}
+    value={""}
+    onChange={ e => {}}
+    
+    />
+   </Grid>
+    <ButtonBase
+    sx={{
+        margin:"auto",
+        marginBottom:"20px",
+        backgroundColor:"#00c6e6",
+        color:"black",
+        marginLeft:"15px",
+        marginRight:"20px",
+        "&:hover":{
+            opacity:"0.7",
+            backgroundColor:"#00c6e6",
+        }
+    }}
+    
+    ></ButtonBase>
     </Grid>
   );
 }
