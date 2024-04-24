@@ -1,6 +1,8 @@
 import { Box } from '@mui/material';
 import EmployerForm from './EmployerForm';
 import UsersTable from './UsersTable';
+
+
 const users = [
    {
     id: 1,
@@ -19,7 +21,7 @@ const Employers = () => {
  return (
 <Box>
 <EmployerForm />
-<UsersTable />
+<UsersTable rows={users} />
 </Box>
 
  );
