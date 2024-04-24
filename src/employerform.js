@@ -1,4 +1,4 @@
-import { Button, ButtonBase, Grid, Input, Typography } from "@mui/material";
+import { Button,Grid, Input, Typography } from "@mui/material";
 
 const employerform = props => {
   return (
@@ -63,7 +63,7 @@ const employerform = props => {
     
     />
    </Grid>
-    <ButtonBase
+    <Button
     sx={{
         margin:"auto",
         marginBottom:"20px",
@@ -77,9 +77,9 @@ const employerform = props => {
         }
     }}
     
-    ></ButtonBase>
+    ></Button>
     </Grid>
   );
 }
 
-export default employerform
+export default employerform;

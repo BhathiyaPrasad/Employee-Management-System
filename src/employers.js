@@ -1,7 +1,9 @@
 const employers = () => {
 
-
+ return (
+<employerform />
+ );
 
     
 }
-export default employers
+export default employers;
