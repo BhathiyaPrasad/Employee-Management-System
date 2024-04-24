@@ -1,9 +1,29 @@
-const employers = () => {
+import { Box } from '@mui/material';
+import EmployerForm from './EmployerForm';
+import UsersTable from './UsersTable';
+const users = [
+   {
+    id: 1,
+    Name: 'Bhathiya',
+   },
+   {
+    id: 1,
+    Name: 'Prasad',
+   }
+];
+
+
+
+const Employers = () => {
 
  return (
-<employerform />
+<Box>
+<EmployerForm />
+<UsersTable />
+</Box>
+
  );
 
     
 }
-export default employers;
+export default Employers;

@@ -10,3 +10,5 @@
 
 
                                 2 viedio 39.29
+
+5 using 'useNavigate hook'    to navigate the user after clicking the employer button in landing page.                            

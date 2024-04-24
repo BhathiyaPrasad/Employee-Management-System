@@ -1,6 +1,6 @@
 import { Button,Grid, Input, Typography } from "@mui/material";
 
-const employerform = props => {
+const EmployerForm = props => {
   return (
     <Grid
     container
@@ -69,7 +69,7 @@ const employerform = props => {
         marginBottom:"20px",
         backgroundColor:"#00c6e6",
         color:"black",
-        marginLeft:"15px",
+        marginLeft:"20px",
         marginRight:"20px",
         "&:hover":{
             opacity:"0.7",
@@ -77,9 +77,10 @@ const employerform = props => {
         }
     }}
     
-    ></Button>
+    >ADD</Button>
+    
     </Grid>
   );
 }
 
-export default employerform;
+export default EmployerForm;
