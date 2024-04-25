@@ -6,11 +6,11 @@ import UsersTable from './UsersTable';
 const users = [
    {
     id: 1,
-    Name: 'Bhathiya',
+    name: 'Bhathiya',
    },
    {
     id: 1,
-    Name: 'Prasad',
+    name: 'Prasad',
    }
 ];
 
