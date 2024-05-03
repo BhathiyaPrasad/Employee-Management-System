@@ -9,6 +9,6 @@
                                 1    npm install axios
 
 
-                                2 viedio 1.18.51
+                               3 viedio 
 
 5 using 'useNavigate hook'    to navigate the user after clicking the employer button in landing page.        
