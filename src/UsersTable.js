@@ -13,10 +13,10 @@ const UsersTable = ({ rows }) => {
             </TableHead>
             <TableBody>
                 {
-                rows.length > 0 ?   rows.map(row => (
-                        <TableRow key={row.id} sx={{ '&:last-child td,&:last-child th': { border: 0 } }}>
-                            <TableCell component={"th"} scope="row">{row.id}</TableCell>
-                            <TableCell component={"th"} scope="row">{row.name}</TableCell>
+                rows.length > 0 ?   rows.map(rows => (
+                        <TableRow key={rows.id} sx={{ '&:last-child td,&:last-child th': { border: 0 } }}>
+                            <TableCell component={"th"} scope="row">{rows.id}</TableCell>
+                            <TableCell component={"th"} scope="row">{rows.name}</TableCell>
                             <TableCell>
                                 <Button
                                     sx={{ margin: '0px 10px' }}
@@ -26,7 +26,7 @@ const UsersTable = ({ rows }) => {
                                 </Button>
                                 <Button
                                     sx={{ margin: '0px 10px' }}
-                                    onclick={() => { }}
+                                    onclick={() => {}}
                                 >
                                     DELETE
                                 </Button>

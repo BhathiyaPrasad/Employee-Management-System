@@ -1,40 +1,43 @@
 import { Box } from '@mui/material';
 import EmployerForm from './EmployerForm';
 import UsersTable from './UsersTable';
-import axios from 'axios';
+import Axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 
 const Employers = () => {
-  const [Employers, setEmployers] = useState([]);
+  const [Employer, setEmployers] = useState([]);
  
   useEffect(() => {
    getEmployers();
   }, []);
 
 
-
   const getEmployers = () => {
-   axios.get('http://localhost:3001/api/employer')
+   Axios.get('http://localhost:3001/api/employer')
    .then(response => {
-      console.log(response);
+      console.log(response.data?.response || "No Data");
+      setEmployers(response.data?.response || "No Data");
    })
+   .catch(error =>
+    {
+      console.log("Axios Error", error)
+    }
+   )
   }
-}
 
 
 
-const Employersdata = () => {
 
  return (
 <Box>
 <EmployerForm />
-<UsersTable rows={Employers} />
+<UsersTable rows={Employer} />
 </Box>
 
  );
 
     
 }
-export default Employersdata;
+export default Employers;
