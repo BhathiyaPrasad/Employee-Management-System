@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Grid, Input, Typography } from "@mui/material";
 
 
 
 
-const EmployerForm = ({createEmployer}) => {
+const EmployerForm = ({createEmployer, submitted}) => {
     const [id, setId] = useState(0);
     const [name, setName] = useState('');
+
+    useEffect(() => {
+        if (!submitted) {
+            setId(0);
+            setName("");
+        }
+    }, [submitted])
+
     return (
         <Grid
             container

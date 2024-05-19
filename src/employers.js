@@ -50,6 +50,7 @@ const Employers = () => {
 <Box>
 <EmployerForm 
 createEmployer={createEmployer}
+submitted = {submitted}
 />
 <UsersTable rows={Employer} />
 </Box>
