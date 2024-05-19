@@ -1,6 +1,6 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
-const UsersTable = ({ rows }) => {
+const UsersTable = ({ rows, selectedEmployer }) => {
     return(
     <TableContainer component={Paper}>
         <Table>
@@ -20,7 +20,7 @@ const UsersTable = ({ rows }) => {
                             <TableCell>
                                 <Button
                                     sx={{ margin: '0px 10px' }}
-                                    onclick={() => { }}
+                                    onclick={() => selectedEmployer({id: rows.id, name:rows.name})}
                                 >
                                     UPDATE
                                 </Button>
