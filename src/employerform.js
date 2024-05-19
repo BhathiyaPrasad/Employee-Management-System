@@ -4,7 +4,7 @@ import { Button, Grid, Input, Typography } from "@mui/material";
 
 
 
-const EmployerForm = props => {
+const EmployerForm = ({createEmployer}) => {
     const [id, setId] = useState(0);
     const [name, setName] = useState('');
     return (
@@ -82,6 +82,7 @@ const EmployerForm = props => {
                         backgroundColor: "#00c6e6",
                     }
                 }}
+                onClick={() => createEmployer({id , name})}
 
             >ADD</Button>
 

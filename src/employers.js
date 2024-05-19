@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 
 const Employers = () => {
   const [Employer, setEmployers] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
  
   useEffect(() => {
    getEmployers();
@@ -23,16 +24,33 @@ const Employers = () => {
    .catch(error =>
     {
       console.log("Axios Error", error)
-    }
-   )
+    })
   }
 
 
+  const createEmployer = (data) => {
+    setSubmitted(true);
+    const payload = {
+      id:data.id,
+      name:data.name,
+    }
+   Axios.post('http://localhost:3001/api/createemployer', payload)
+   .then(() => {
+    
+        getEmployers()
+        setSubmitted(false)
+   })
+   .catch(error =>{
+      console.log("Axios Error", error)
+    });
 
+   }
 
  return (
 <Box>
-<EmployerForm />
+<EmployerForm 
+createEmployer={createEmployer}
+/>
 <UsersTable rows={Employer} />
 </Box>
 
