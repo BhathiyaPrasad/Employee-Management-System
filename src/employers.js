@@ -55,7 +55,7 @@ const Employers = () => {
       id: data.id,
       name: data.name,
     }
-  Axios.put('http://localhost:3001/api/updateeemployer', payload)
+  Axios.put('http://localhost:3001/api/updateemployer', payload)
       .then(() => {
 
         getEmployers();
@@ -74,14 +74,16 @@ const Employers = () => {
     <Box>
       <EmployerForm
         createEmployer={createEmployer}
+        updateEmployer={updateEmployer}
         submitted={submitted}
         data={selectedEmployer}
+        isEdit={isEdit}
       />
       <UsersTable 
       rows={Employer}
       selectedEmployer={data => {
    setSelectedEmployer(data);
-   isEdit(true)
+   setIsEdit(true);
       }}
       />
     </Box>
