@@ -9,6 +9,6 @@
                                 1    npm install axios
 
 
-                               3 vi
+                               3 v
 
 5 using 'useNavigate hook'    to navigate the user after clicking the employer button in landing page.        
