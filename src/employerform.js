@@ -4,7 +4,7 @@ import { Button, Grid, Input, Typography } from "@mui/material";
 
 
 
-const EmployerForm = ({createEmployer,updateEmployer, submitted, data, isEdit }) => {
+const EmployerForm = ({ createEmployer, updateEmployer, submitted, data, isEdit }) => {
     const [id, setId] = useState(0);
     const [name, setName] = useState('');
 
@@ -14,12 +14,12 @@ const EmployerForm = ({createEmployer,updateEmployer, submitted, data, isEdit })
             setName("");
         }
     }, [submitted])
-  useEffect(() => {
-    if ( data?.id && data.id !== 0 ) {
-  setId(data.id);
-  setName(data.name) 
-    }
-}, [data])
+    useEffect(() => {
+        if (data?.id && data.id !== 0) {
+            setId(data.id);
+            setName(data.name)
+        }
+    }, [data])
 
 
     return (
@@ -97,11 +97,11 @@ const EmployerForm = ({createEmployer,updateEmployer, submitted, data, isEdit })
                         backgroundColor: "#00c6e6",
                     }
                 }}
-                onClick={() =>isEdit ? updateEmployer(id , name) : createEmployer({id , name})}
+                onClick={() => isEdit ? updateEmployer({id, name}) : createEmployer({ id, name })}
 
             >{
-                isEdit ? 'Update' : 'Add'
-            }</Button>
+                    isEdit ? 'Update' : 'Add'
+                }</Button>
 
         </Grid>
     );
