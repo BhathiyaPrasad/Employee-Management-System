@@ -67,6 +67,21 @@ const Employers = () => {
       });
 
   }
+  const deleteEmployer = (data) => {
+   
+
+    
+   Axios.delete('http://localhost:3001/api/deleteemployer', data)
+       .then(() => {
+ 
+         getEmployers();
+         
+         
+       })
+       .catch(error => {
+         console.log("Axios Error", error)
+       });
+  }
 
 
 
@@ -85,6 +100,7 @@ const Employers = () => {
    setSelectedEmployer(data);
    setIsEdit(true);
       }}
+      deleteEmployer={data => window.confirm('Are you sure?') && deleteEmployer(data) }
       />
     </Box>
 
