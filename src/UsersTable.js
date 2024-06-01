@@ -26,7 +26,7 @@ const UsersTable = ({ rows, selectedEmployer, deleteEmployer }) => {
                                 </Button>
                                 <Button
                                     sx={{ margin: '0px 10px' }}
-                                    onClick={() => deleteEmployer({id: row.id})}
+                                    onClick={() => deleteEmployer({id: row.id,})}
                                 >
                                     DELETE
                                 </Button>
