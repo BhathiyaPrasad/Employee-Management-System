@@ -40,7 +40,7 @@ const Employers = () => {
 
         getEmployers()
         setSubmitted(false)
-        isEdit(false);
+        isEdit(false)
       })
       .catch(error => {
         console.log("Axios Error", error)
@@ -68,7 +68,7 @@ const Employers = () => {
 
   }
   const deleteEmployer = (data) => {
-    Axios.delete('http://localhost:3001/api/deleteemployer', data)
+    Axios.delete('http://localhost:3001/api/deleteemployer', {data: data})
       .then(() => {
       getEmployers();
       })
