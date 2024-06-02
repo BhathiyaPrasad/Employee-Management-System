@@ -18,7 +18,7 @@ const Employers = () => {
 
 
   const getEmployers = () => {
-    Axios.get('https://83f8-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/employer')
+    Axios.get('https://e489-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/employer')
       .then(response => {
         console.log(response.data?.response || "No Data");
         setEmployers(response.data?.response || "No Data");
@@ -35,7 +35,7 @@ const Employers = () => {
       id: data.id,
       name: data.name,
     }
-    Axios.post('https://83f8-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/createemployer', payload)
+    Axios.post('https://e489-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/createemployer', payload)
       .then(() => {
 
         getEmployers()
@@ -55,7 +55,7 @@ const Employers = () => {
       id: data.id,
       name: data.name,
     }
-    Axios.put('https://83f8-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/updateemployer', payload)
+    Axios.put('https://e489-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/updateemployer', payload)
       .then(() => {
 
         getEmployers();
@@ -68,7 +68,7 @@ const Employers = () => {
 
   }
   const deleteEmployer = (data) => {
-    Axios.delete('https://83f8-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/deleteemployer', {data: data})
+    Axios.delete('https://e489-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/deleteemployer', {data: data})
       .then(() => {
       getEmployers();
       })
