@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 const Employers = () => {
   const [Employer, setEmployers] = useState([]);
   const [submitted, setSubmitted] = useState(false);
-  const[selectedEmployer, setSelectedEmployer] = useState(false);
+  const [selectedEmployer, setSelectedEmployer] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Employers = () => {
 
         getEmployers()
         setSubmitted(false)
-        isEdit(false);
+        isEdit(false)
       })
       .catch(error => {
         console.log("Axios Error", error)
@@ -49,13 +49,13 @@ const Employers = () => {
   }
 
   const updateEmployer = (data) => {
-   setSubmitted(true);
+    setSubmitted(true);
 
-   const payload = {
+    const payload = {
       id: data.id,
       name: data.name,
     }
-  Axios.put('http://localhost:3001/api/updateeemployer', payload)
+    Axios.put('http://localhost:3001/api/updateemployer', payload)
       .then(() => {
 
         getEmployers();
@@ -67,6 +67,15 @@ const Employers = () => {
       });
 
   }
+  const deleteEmployer = (data) => {
+    Axios.delete('http://localhost:3001/api/deleteemployer', {data: data})
+      .then(() => {
+      getEmployers();
+      })
+      .catch(error => {
+        console.log("Axios Error", error)
+      });
+  }
 
 
 
@@ -74,15 +83,18 @@ const Employers = () => {
     <Box>
       <EmployerForm
         createEmployer={createEmployer}
+        updateEmployer={updateEmployer}
         submitted={submitted}
         data={selectedEmployer}
+        isEdit={isEdit}
       />
-      <UsersTable 
-      rows={Employer}
-      selectedEmployer={data => {
-   setSelectedEmployer(data);
-   isEdit(true)
-      }}
+      <UsersTable
+        rows={Employer}
+        selectedEmployer={data => {
+          setSelectedEmployer(data);
+          setIsEdit(true);
+ }}
+ deleteEmployer={data => {window.confirm('Are you sure?') && deleteEmployer(data)}}
       />
     </Box>
 
