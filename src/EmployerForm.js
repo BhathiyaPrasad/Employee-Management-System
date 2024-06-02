@@ -4,7 +4,7 @@ import { Button, Grid, Input, Typography } from "@mui/material";
 
 
 
-const EmployerForm = ({ createEmployer, updateEmployer, submitted, data, isEdit }) => {
+const EmployerForm = ({ createEmployer,isEdit, updateEmployer, submitted, data}) => {
     const [id, setId] = useState(0);
     const [name, setName] = useState('');
 

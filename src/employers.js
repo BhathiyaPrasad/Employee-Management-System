@@ -40,7 +40,7 @@ const Employers = () => {
 
         getEmployers()
         setSubmitted(false)
-        isEdit(false)
+        setIsEdit(false)
       })
       .catch(error => {
         console.log("Axios Error", error)
@@ -58,9 +58,9 @@ const Employers = () => {
     Axios.put('http://localhost:3001/api/updateemployer', payload)
       .then(() => {
 
-        getEmployers();
-        setSubmitted(false);
-        isEdit(false);
+        getEmployers()
+        setSubmitted(false)
+        setIsEdit(false)
       })
       .catch(error => {
         console.log("Axios Error", error)
