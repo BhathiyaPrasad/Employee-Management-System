@@ -8,7 +8,7 @@ const UsersTable = ({ rows, selectedEmployer, deleteEmployer }) => {
                 <TableRow>
                     <TableCell>ID</TableCell>
                     <TableCell>NAME</TableCell>
-                    <TableCell>POSITION</TableCell>
+                    
                 </TableRow>
             </TableHead>
             <TableBody>
