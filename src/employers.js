@@ -55,7 +55,7 @@ const Employers = () => {
       id: data.id,
       name: data.name,
     }
-    Axios.put('https://83f8-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/updateemployer', payload)
+    Axios.put('https://83f8-2402-4000-21c0-3a61-525-5c11-819-ec13.ngrok-free.app/api/updateemployer', payload)
       .then(() => {
 
         getEmployers();
