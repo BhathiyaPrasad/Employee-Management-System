@@ -18,7 +18,7 @@ const Employers = () => {
 
 
   const getEmployers = () => {
-    Axios.get('http://localhost:3001/api/employer')
+    Axios.get('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/employer')
       .then(response => {
         console.log(response.data?.response || "No Data");
         setEmployers(response.data?.response || "No Data");
@@ -35,7 +35,7 @@ const Employers = () => {
       id: data.id,
       name: data.name,
     }
-    Axios.post('http://localhost:3001/api/createemployer', payload)
+    Axios.post('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/createemployer', payload)
       .then(() => {
 
         getEmployers()
@@ -55,7 +55,7 @@ const Employers = () => {
       id: data.id,
       name: data.name,
     }
-    Axios.put('http://localhost:3001/api/updateemployer', payload)
+    Axios.put('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/updateemployer', payload)
       .then(() => {
 
         getEmployers()
@@ -68,7 +68,7 @@ const Employers = () => {
 
   }
   const deleteEmployer = (data) => {
-    Axios.delete('http://localhost:3001/api/deleteemployer', {data: data})
+    Axios.delete('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/deleteemployer', {data: data})
       .then(() => {
       getEmployers();
       })
