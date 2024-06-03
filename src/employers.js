@@ -14,64 +14,64 @@ const Employers = () => {
     getEmployers();
   }, []);
 
-  const getEmployers = () => {
-    Axios.get('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/employer')
-      .then(response => {
-        const data = response.data?.response;
-        if (Array.isArray(data)) {
-          setEmployers(data);
-        } else {
-          setEmployers([]); // Handle unexpected response
-        }
-      })
-      .catch(error => {
-        console.error("Axios Error", error);
-        setEmployers([]); // Handle error state
-      });
+  const getEmployers = async () => {
+    try {
+      const response = await Axios.get('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/employer');
+      console.log('Response data:', response.data);
+      const data = response.data?.response;
+      if (Array.isArray(data)) {
+        setEmployers(data);
+      } else {
+        console.error('Data is not an array:', data);
+        setEmployers([]); // Handle unexpected response
+      }
+    } catch (error) {
+      console.error("Axios Error", error);
+      setEmployers([]); // Handle error state
+    }
   };
 
-  const createEmployer = (data) => {
+  const createEmployer = async (data) => {
     setSubmitted(true);
     const payload = {
       id: data.id,
       name: data.name,
     };
-    Axios.post('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/createemployer', payload)
-      .then(() => {
-        getEmployers();
-        setSubmitted(false);
-        setIsEdit(false);
-      })
-      .catch(error => {
-        console.error("Axios Error", error);
-      });
+    try {
+      await Axios.post('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/createemployer', payload);
+      getEmployers();
+      setSubmitted(false);
+      setIsEdit(false);
+    } catch (error) {
+      console.error("Axios Error", error);
+      setSubmitted(false); // Reset submission state on error
+    }
   };
 
-  const updateEmployer = (data) => {
+  const updateEmployer = async (data) => {
     setSubmitted(true);
     const payload = {
       id: data.id,
       name: data.name,
     };
-    Axios.put('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/updateemployer', payload)
-      .then(() => {
-        getEmployers();
-        setSubmitted(false);
-        setIsEdit(false);
-      })
-      .catch(error => {
-        console.error("Axios Error", error);
-      });
+    try {
+      await Axios.put('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/updateemployer', payload);
+      getEmployers();
+      setSubmitted(false);
+      setIsEdit(false);
+    } catch (error) {
+      console.error("Axios Error", error);
+      setSubmitted(false); // Reset submission state on error
+    }
   };
 
-  const deleteEmployer = (data) => {
-    Axios.delete('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/deleteemployer', { data })
-      .then(() => {
-        getEmployers();
-      })
-      .catch(error => {
-        console.error("Axios Error", error);
-      });
+  const deleteEmployer = async (data) => {
+    try {
+      await Axios.delete('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/deleteemployer', { data });
+      getEmployers();
+    } catch (error) {
+      console.error("Axios Error", error);
+    }
   };
 
   return (
