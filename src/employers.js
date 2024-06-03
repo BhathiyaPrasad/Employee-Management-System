@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import EmployerForm from './EmployerForm';
 import UsersTable from './UsersTable';
+import SideMenu from './sidemenu';
 import Axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -15,7 +16,7 @@ const Employers = () => {
   }, []);
 
   const getEmployers = () => {
-    Axios.get('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/employer',{
+    Axios.get('http://localhost:3001/api/employer',{
       headers: {
         'ngrok-skip-browser-warning':'test'
       }
@@ -40,7 +41,7 @@ const Employers = () => {
       id: data.id,
       name: data.name,
     };
-    Axios.post('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/createemployer', payload)
+    Axios.post('http://localhost:3001/api/createemployer', payload)
       .then(() => {
         getEmployers();
         setSubmitted(false);
@@ -57,7 +58,7 @@ const Employers = () => {
       id: data.id,
       name: data.name,
     };
-    Axios.put('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/updateemployer', payload)
+    Axios.put('http://localhost:3001/api/updateemployer', payload)
       .then(() => {
         getEmployers();
         setSubmitted(false);
@@ -69,7 +70,7 @@ const Employers = () => {
   };
 
   const deleteEmployer = (data) => {
-    Axios.delete('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/deleteemployer', { data })
+    Axios.delete('http://localhost:3001/api/deleteemployer', { data })
       .then(() => {
         getEmployers();
       })
@@ -95,6 +96,7 @@ const Employers = () => {
         }}
         deleteEmployer={data => { if (window.confirm('Are you sure?')) deleteEmployer(data); }}
       />
+      <SideMenu/>
     </Box>
   );
 };
