@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import EmployerForm from './EmployerForm';
 import UsersTable from './UsersTable';
-import SideMenu from './sidemenu';
+
 import Axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -96,7 +96,7 @@ const Employers = () => {
         }}
         deleteEmployer={data => { if (window.confirm('Are you sure?')) deleteEmployer(data); }}
       />
-      <SideMenu/>
+     
     </Box>
   );
 };
