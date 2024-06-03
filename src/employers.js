@@ -17,13 +17,21 @@ const Employers = () => {
   const getEmployers = async () => {
     try {
       const response = await Axios.get('https://abbd-2402-4000-21c0-16bf-699c-e08e-cdc8-ec81.ngrok-free.app/api/employer');
+      console.log('Full response:', response); // Log full response to debug
       console.log('Response data:', response.data);
-      const data = response.data?.response;
-      if (Array.isArray(data)) {
-        setEmployers(data);
+
+      // Check if response.data exists
+      if (response.data && response.data.response) {
+        const data = response.data.response;
+        if (Array.isArray(data)) {
+          setEmployers(data);
+        } else {
+          console.error('Data is not an array:', data);
+          setEmployers([]); // Handle unexpected response
+        }
       } else {
-        console.error('Data is not an array:', data);
-        setEmployers([]); // Handle unexpected response
+        console.error('Response data is not structured as expected:', response.data);
+        setEmployers([]); // Handle missing response field
       }
     } catch (error) {
       console.error("Axios Error", error);
