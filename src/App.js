@@ -1,18 +1,27 @@
 import { useNavigate } from 'react-router-dom';
+import { Button, Container, Typography } from '@mui/material';
 import './App.css';
 
 function App() {
+    const navigate = useNavigate();
 
-   const navigate = useNavigate (); 
-
-  return (
-    <div className="App">
-      <header className="App-header">
-       <h1>Employee Management System</h1>
-       <button className="employers-button" onClick={() => navigate('/employer')}>Employers</button>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <Container maxWidth="md">
+                    <Typography variant="h2" component="h1" gutterBottom>
+                        Welcome to Employee Management System
+                    </Typography>
+                    <Typography variant="body1" gutterBottom>
+                        Manage your employees efficiently with our easy-to-use system.
+                    </Typography>
+                    <Button variant="contained" color="primary" onClick={() => navigate('/employer')}>
+                        View Employers
+                    </Button>
+                </Container>
+            </header>
+        </div>
+    );
 }
 
 export default App;
