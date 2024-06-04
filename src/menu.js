@@ -27,9 +27,9 @@ const Menu = () => {
           </ListItem>
           <ListItem button>
             <ListItemIcon>
-              <AssignmentIcon />
+              <PersonIcon />
             </ListItemIcon>
-            <ListItemText primary="Manager" />
+            <ListItemText primary="Employer" />
           </ListItem>
           <ListItem button>
             <ListItemIcon>
