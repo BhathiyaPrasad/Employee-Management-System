@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import EmployerForm from './EmployerForm';
 import UsersTable from './UsersTable';
-
+import Menu from './menu';
 import Axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -16,9 +16,9 @@ const Employers = () => {
   }, []);
 
   const getEmployers = () => {
-    Axios.get('http://localhost:3001/api/employer',{
+    Axios.get('http://localhost:3001/api/employer', {
       headers: {
-        'ngrok-skip-browser-warning':'test'
+        'ngrok-skip-browser-warning': 'test'
       }
     })
       .then(response => {
@@ -49,6 +49,7 @@ const Employers = () => {
       })
       .catch(error => {
         console.error("Axios Error", error);
+        setSubmitted(false); // Handle error state
       });
   };
 
@@ -66,6 +67,7 @@ const Employers = () => {
       })
       .catch(error => {
         console.error("Axios Error", error);
+        setSubmitted(false); // Handle error state
       });
   };
 
@@ -80,23 +82,25 @@ const Employers = () => {
   };
 
   return (
-    <Box>
-      <EmployerForm
-        createEmployer={createEmployer}
-        updateEmployer={updateEmployer}
-        submitted={submitted}
-        data={selectedEmployer}
-        isEdit={isEdit}
-      />
-      <UsersTable
-        rows={employers}
-        selectedEmployer={data => {
-          setSelectedEmployer(data);
-          setIsEdit(true);
-        }}
-        deleteEmployer={data => { if (window.confirm('Are you sure?')) deleteEmployer(data); }}
-      />
-     
+    <Box display="flex">
+      <Menu />
+      <Box flexGrow={1} padding={2}>
+        <EmployerForm
+          createEmployer={createEmployer}
+          updateEmployer={updateEmployer}
+          submitted={submitted}
+          data={selectedEmployer}
+          isEdit={isEdit}
+        />
+        <UsersTable
+          rows={employers}
+          selectedEmployer={data => {
+            setSelectedEmployer(data);
+            setIsEdit(true);
+          }}
+          deleteEmployer={data => { if (window.confirm('Are you sure?')) deleteEmployer(data); }}
+        />
+      </Box>
     </Box>
   );
 };
